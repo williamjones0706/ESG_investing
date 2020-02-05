@@ -14,11 +14,12 @@ function handleSubmit() {
   getCompanyInfo(stock)
   // build_Basic_Line_Plot(stock);
   build_Candlestick_Plot(stock);
-  build_gauge_ESG(stock);
-  build_gauge_E(stock);
-  build_gauge_S(stock);
-  build_gauge_G(stock);
+  // build_gauge_ESG(stock);
+  // build_gauge_E(stock);
+  // build_gauge_S(stock);
+  // build_gauge_G(stock);
   getAnnualData(stock)
+  buildGetESGscores(stock)
 }
 
 function getCompanyInfo(stock) {
@@ -64,12 +65,40 @@ function getCompanyInfo(stock) {
 }
 
 
-function build_gauge_ESG(stock) {
+function buildGetESGscores(stock) {
+  d3.json("../static/data/ESG_Scores.json").then((data) => {
+      // Slice and filer the data from Samples
+      console.log(data);
+      data_array = Object.entries(data);
+      console.log(data_array);
+      data_arrar_score = data_array.find(e => e[0] === stock)[1];
+      console.log(data_arrar_score);
+      console.log(stock)
+      ESG_Score_Value = data_arrar_score['ESG Risk Score'];
+      E_Score_Value = data_arrar_score['Environment Risk Score'];
+      S_Score_Value = data_arrar_score['Social Risk Score'];
+      G_Score_Value = data_arrar_score['Governance Risk Score'];
+
+      console.log(ESG_Score_Value)
+      console.log(E_Score_Value)
+      console.log(S_Score_Value)
+      console.log(G_Score_Value)
+
+      build_gauge_ESG(ESG_Score_Value)
+      build_gauge_E(E_Score_Value)
+      build_gauge_S(S_Score_Value)
+      build_gauge_G(G_Score_Value)
+
+  });
+};
+
+
+function build_gauge_ESG(ESG_Score_Value) {
   var data = [
     {
       type: "indicator",
       mode: "gauge+number",
-      value: 30,
+      value: ESG_Score_Value,
       title: { text: "ESG Score", font: { size: 16 } },
       gauge: {
         axis: { range: [null, 100], tickwidth: 1, tickcolor: "darkblue" },
@@ -98,12 +127,12 @@ function build_gauge_ESG(stock) {
 
 }
 
-function build_gauge_E(stock) {
+function build_gauge_E(E_Score_Value) {
   var data = [
     {
       type: "indicator",
       mode: "gauge+number",
-      value: 30,
+      value: E_Score_Value,
       title: { text: "Environment", font: { size: 16 } },
       gauge: {
         axis: { range: [null, 100], tickwidth: 1, tickcolor: "darkblue" },
@@ -132,12 +161,12 @@ function build_gauge_E(stock) {
 
 }
 
-function build_gauge_S(stock) {
+function build_gauge_S(S_Score_Value) {
   var data = [
     {
       type: "indicator",
       mode: "gauge+number",
-      value: 30,
+      value: S_Score_Value,
       title: { text: "Social", font: { size: 16 } },
       gauge: {
         axis: { range: [null, 100], tickwidth: 1, tickcolor: "darkblue" },
@@ -166,12 +195,12 @@ function build_gauge_S(stock) {
 
 }
 
-function build_gauge_G(stock) {
+function build_gauge_G(G_Score_Value) {
   var data = [
     {
       type: "indicator",
       mode: "gauge+number",
-      value: 30,
+      value: G_Score_Value,
       title: { text: "Governance", font: { size: 16 } },
       gauge: {
         axis: { range: [null, 100], tickwidth: 1, tickcolor: "darkblue" },
