@@ -31,15 +31,14 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
   <!-- End of MAP Libraries -->
 
-
-
+<!-- PIE Libraries -->
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+<!-- End PIE Libraries -->
   
   </head>
-  
-  
-  
-  
-  
+    
   <body>
     <!-- New Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -55,20 +54,18 @@
             <a class="nav-link" href="index.html">Overview</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="table.html">Companies</a>
+            <a class="nav-link" href="table.html">Industry</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/detail">Stock Analysis</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <!-- <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Find" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Stock Ticker</button>
-        </form>
+        </form> -->
       </div>
     </nav>
-  
-   
     
     
     <!-- End new Navbar -->
@@ -119,7 +116,7 @@
           <p>Insert here description of Visualization2</p>
         </div>
         <div class="col-md-4">
-          <a href="ChartIII.html"><img src="../static/images/a4.png" alt="ChartI_title" class="imageNav-photo"></a>
+          <a href="#SECTORChart"><img src="../static/images/a4.png" alt="ChartI_title" class="imageNav-photo"></a>
           <h4>Industries</h4>
           <p>Insert here description of Visualization3</p>
         </div>
@@ -162,9 +159,9 @@
 
    <!-- Description to add MAP -->
    <div id="descriptor"  style ="background-color:rgb(137, 224, 195)">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12" id="MAPChart">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12" id="MAPChart">
 
           <!-- <div id="options">Click on the clusters</div> -->
           <h2 style ="color:rgb(61, 190, 102)"> Location</h2>
@@ -176,10 +173,57 @@
           <!-- MAP JS -->
           <script type="text/javascript" src="../static/js/logic.js"></script>
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <!-- End of MAP -->
+
+    <!-- Beginning of PIE -->
+    <div id="descriptor">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12" id="SECTORChart">
+
+            <h2 style ="color:rgb(61, 190, 102)">Industry Sectors of the Companies Studied</h2>
+            <h3>Drop Down Menu Allows Segmentation of Data by Market Capitalization</h3>
+            <select id="selDataset">
+                <option value="all">All (724 Companies)</option>
+                <option value="sc">Small Cap (7 Companies, < $2B)</option>
+                <option value="mc">Mid Cap (184 Companies, $2B - $10B)</option>
+                <option value="lc">Large Cap (533 Companies, > $10B)</option>
+            </select>
+        
+            <div id="pie"></div>
+        
+            <script src="../static/data/sector_count.json"></script>
+            <script src="../static/data/small_cap.json"></script>
+            <script src="../static/data/mid_cap.json"></script>
+            <script src="../static/data/large_cap.json"></script>
+        
+            <script src="../static/js/sector_mkt_cap_pie.js"></script>
+        
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- End of PIE -->
+
+
+
+
+
+
+
+
+
+
 
     <!-- Start of footer -->
     <footer class="footer navbar-fixed-bottom">
