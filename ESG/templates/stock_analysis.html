@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ESG Risk Scores Dashboard</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen"> -->
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="static/styles.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+  <!-- New Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="static/images/WSWSlogo.png" width="60" height="60" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Overview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Companies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Stock Analysis</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Find" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Stock Ticker</button>
+      </form>
+    </div>
+  </nav>
+
+    <!-- jumbotron & intro -->
+    <div class="row">
+      <div class="col-lg-12">
+      <div class="jumbotron">
+        <div class="overlay"></div>
+        <div class="inner">
+          <h1>Search a Company by its Ticker</h1>
+          <h2 style="color:rgb(7, 133, 47)"> 
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" id="stockInput" type="search" placeholder="Find" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" id="submit" type="submit">Stock Ticker</button>
+            </form>
+          </h2>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+    <!-- Description -->
+    <div id="descriptor">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3">
+              <img class="img-thumbnail" id="Compant-Logo">
+          </div>
+          <div class="col-lg-6">
+            <div class="panel panel-primary">
+              <h4><div class="panel-body" id="Company-Name"></div></h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <h6 id="Company-Details-Header"></h6>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+              <div class="panel panel-primary">
+                <div class="panel-body" id="Company-Description"></div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <h5><div class="panel-body" id = "company-details-add"></div></h5>
+              <table id="details-table">
+                <thead></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+        </div>
+      <div class="row">
+        <div class="col-lg-3" id="Gauge_ESG"></div>
+        <div class="col-lg-3" id="Gauge_E"></div>
+        <div class="col-lg-3" id="Gauge_S"></div>
+        <div class="col-lg-3" id="Gauge_G"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12" id="Stock_Chart"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table" id="summary-table">
+          <thead class="thead-dark">
+            <tr>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+      
+      
+      </div>
+    </div>
+
+
+    <div id="dashboard">
+      <div id="plot1"></div>
+      <div id="plot2"></div>
+    </div>  
+    
+    
+  
+      <!-- End of the Visualizations imageNav Area -->
+    <!-- End of container -->
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+      </p>Copyright & Copy;2020 Wall Street Warriors (WSWs).
+    </footer>
+    <!-- End of footer -->
+    <!-- jQuery CDN -->
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>-->
+    <!-- Bootstrap CDN -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> --> 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./Static/plots_1.js"></script>
+
+
+  </body>
+</html>
