@@ -37,6 +37,7 @@ function getCompanyInfo(stock) {
     // d3.event.preventDefault();
     d3.select("#Company-Name").text(company_name);
     d3.select("#Compant-Logo").attr("src", company_logo);
+    d3.select("#Company-Website-Link").attr("href", company_website);
     d3.select("#Company-Description").text(company_description);
     d3.select("#Company-Details-Header").text("Company Details");
 
@@ -272,7 +273,9 @@ function build_Candlestick_Plot(stock) {
   });
 }
 
-
+function formatNumber (num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}
 
 function getAnnualData(stock) {
 
@@ -311,13 +314,13 @@ function buildTableRows(dates, revenue, gross_profit) {
   trevenue = tbody.append('tr');
   trevenue.append('td').text("Revenue")
   for (var i = 5; i < date_length; i++) {
-    trevenue.append('td').text(revenue[i])
+    trevenue.append('td').text(formatNumber(revenue[i]))
   }
   var tgross_profit;
   tgross_profit = tbody.append('tr');
   tgross_profit.append('td').text("Gross Profit")
   for (var i = 5; i < date_length; i++) {
-    tgross_profit.append('td').text(gross_profit[i])
+    tgross_profit.append('td').text(formatNumber(gross_profit[i]))
   }
 }
 
