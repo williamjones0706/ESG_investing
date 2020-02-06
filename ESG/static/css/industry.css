@@ -39,12 +39,8 @@ line-height: 1.75em;
 vertical-align: middle
 }
 
-#changeback {
-color: rgb(43, 96, 177);
-}
-
 #industry_name {
-color: rgb(43, 96, 177);
+color: rgb(43, 96, 177) !important;
 }
 
 h4 {
@@ -97,7 +93,7 @@ ul li {
 }
 ul li a {
   text-decoration: none;
-  color: white;
+  color: rgb(136, 129, 129);
   display: block;
 }
 /* ul li a:hover {
@@ -110,9 +106,6 @@ ul li:hover ul li {
   display: block;
 }
 
-.navbar-nav mr-auto {
-color: rgb(114, 109, 109)
-}
 /* ----Navbar END---- */
 
 /* First line */
