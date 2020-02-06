@@ -166,18 +166,10 @@ position: relative;
 padding-top: 50px;
 }
 
-.navbar-nav mr-auto{
-color:  rgb(110, 91, 91);
-font-size: 30px;
-}
 
-#changeback {
-  color: rgb(43, 96, 177);
-}
-  
-#industry_name{
-color: rgb(43, 96, 177);
-}
+
+
+
 
 #container{
 width:800px;
