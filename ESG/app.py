@@ -60,7 +60,7 @@ def home():
     return render_template('index.html')
 
 @app.route('/overview')
-def home():
+def overview():
     return render_template('index.html')
 
 @app.route('/industry')
