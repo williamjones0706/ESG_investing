@@ -140,6 +140,9 @@ ul li:hover ul li {
   z-index: 2;
 }
 
+.nav-link{
+  color:  rgb(110, 91, 91);
+}
 
 /* ----Descriptor START---- */
 #descriptor{
