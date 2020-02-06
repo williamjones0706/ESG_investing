@@ -63,7 +63,7 @@ def home():
 def industry():
     return render_template('industry.html')
 
-@app.route('/stock analysis')
+@app.route('/stockanalysis')
 def stock_analysis():
     return render_template('stock_analysis.html')
 
