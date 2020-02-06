@@ -11,6 +11,7 @@ background-size: cover;
 p {
 line-height: 1.75;
 font-size: 30px;
+color: rgb(7, 133, 47);
 }
 
 h1 {
@@ -38,6 +39,14 @@ text-align: center;
 color: whitesmoke;
 line-height: 1.75em;
 vertical-align: middle
+}
+
+#changeback {
+color: rgb(43, 96, 177); 
+}
+
+#industry_name {
+color: rgb(43, 96, 177);
 }
 
 h4 {
