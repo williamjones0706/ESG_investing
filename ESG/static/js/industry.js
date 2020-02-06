@@ -352,7 +352,7 @@ function build_industry_dynamic_plot(industry_name) {
 
         // create layout variable to set plots layout
         var layout = {
-            title: "<b>Industry ESG Breakdown</b><br>(lower scores are better)",
+            title: "<b>Selected Industry ESG Breakdown</b><br>(lower scores are better)",
             yaxis: {
                 tickmode: "linear",
                 showgrid: true,
