@@ -59,10 +59,6 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/overview')
-def overview():
-    return render_template('index.html')
-
 @app.route('/industry')
 def industry():
     return render_template('industry.html')
