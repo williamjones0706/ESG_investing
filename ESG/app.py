@@ -59,6 +59,18 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/overview')
+def home():
+    return render_template('index.html')
+
+@app.route('/industry')
+def industry():
+    return render_template('industry.html')
+
+@app.route('/stock_analysis')
+def stock_analysis():
+    return render_template('stock_analysis.html')
+
 # @app.route('/post', methods=['POST'])
 # def process_form_data():
 
