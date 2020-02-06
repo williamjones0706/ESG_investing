@@ -57,7 +57,7 @@ app = Flask(__name__)
 # Set up your default route
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html')  
 
 @app.route('/industry')
 def industry():
