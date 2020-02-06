@@ -10,6 +10,7 @@ background-size: cover;
 
 p {
 line-height: 1.75;
+font-size: 30px;
 }
 
 h1 {
@@ -39,8 +40,8 @@ line-height: 1.75em;
 vertical-align: middle
 }
 
-#industry_name {
-color: rgb(43, 96, 177) !important;
+.panel-body {
+color: rgb(43, 96, 177);
 }
 
 h4 {
