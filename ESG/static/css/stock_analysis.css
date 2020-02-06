@@ -105,7 +105,7 @@ ul li:hover ul li {
 
 /* First line */
 .jumbotron{
-  background-image: url('images/esgimg.jpg');
+  background-image: url('./static/images/esgimg.jpg');
   font-family: 'Arial';
   font-size: 50px;
   padding-top: 130px;
@@ -160,7 +160,7 @@ ul li:hover ul li {
 /* ----Container START---- */
 
 #dashboard{
-  background-image: url('images/a3.jpeg');
+  background-image: url('../images/a3.jpeg');
   background-size: cover;
   position: relative;
   padding-top: 50px;
