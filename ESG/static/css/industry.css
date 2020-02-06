@@ -10,6 +10,7 @@ body {
 
 p {
   line-height: 1.75;
+  color: white
 }
 
 h1 {
@@ -84,8 +85,6 @@ p a {
   padding: 0px 20px;
 }
 
-p {
-  color: white;
 }
 ul {
     margin:0px;
