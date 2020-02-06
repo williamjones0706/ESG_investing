@@ -39,6 +39,14 @@ line-height: 1.75em;
 vertical-align: middle
 }
 
+#changeback {
+color: rgb(43, 96, 177);
+}
+
+#industry_name {
+color: rgb(43, 96, 177);
+}
+
 h4 {
 font-family: 'Arial';
 font-size: 30px;
@@ -100,6 +108,10 @@ ul li ul li {
 }
 ul li:hover ul li {
   display: block;
+}
+
+.navbar-nav mr-auto {
+color: rgb(114, 109, 109)
 }
 /* ----Navbar END---- */
 
