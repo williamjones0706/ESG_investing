@@ -108,12 +108,12 @@
 
           <div class="row text-center">
             <div class="col-md-6">
-              <a href="#MAPChart"><img src="../static/images/a4.png" alt="Location" class="imageNav-photo"></a>
+              <a href="#MAPChart"><img src="/static/images/a4.png" alt="Geography" class="imageNav-photo"></a>
               <h4>Geography</h4>
               <!-- <p>See where the companies are located in the map</p> -->
             </div>
             <div class="col-md-6">
-              <a href="#SECTORChart"><img src="../static/images/a4.png" alt="Market Capitalization" class="imageNav-photo"></a>
+              <a href="#SECTORChart"><img src="/static/images/a4.png" alt="Market Capitalization" class="imageNav-photo"></a>
               <h4>Market Capitalization</h4>
               <!-- <p>Insert here description of Visualization1</p> -->
             </div>
@@ -121,12 +121,12 @@
 
           <div class="row text-center">
             <div class="col-md-6">
-              <a href="#histogram2"><img src="../static/images/a4.PNG" alt="ESG Risk" class="imageNav-photo"></a>
+              <a href="#histogram2"><img src="/static/images/a4.png" alt="ESG Risk" class="imageNav-photo"></a>
               <h4>Risk Distribution</h4>
               <!-- <p>Insert here description of Visualization1</p> -->
             </div>
             <div class="col-md-6">
-              <a href="#funnel"><img src="../static/images/a4.png" alt="Stock Performance" class="imageNav-photo"></a>
+              <a href="#funnel"><img src="/static/images/a4.png" alt="Stock Performance" class="imageNav-photo"></a>
               <h4>Stock Performance</h4>
               <!-- <p>Insert here description of Visualization1</p> -->
             </div>
@@ -145,7 +145,7 @@
 
           <!-- <div id="options">Click on the clusters</div> -->
           <h2 style ="color:rgb(61, 190, 102)"> Geography</h2>
-          <h3 style ="color: black">  The interactive map locates the headquarters of all the 724 companies w. The markers when clicked provides the Company Name, ESG Risk Score and the Market Capital. Where there is a heavy concentration of the company HQs a circle with a number is indicated to show the cluster. </h3>
+          <h3 style ="color: black">  The interactive map locates the headquarters of all the 724 companies. The circles when clicked provide markers in the radius. The markers include the Company Name, ESG Risk Score and the Market Capital. Where there is a heavy concentration of the company HQs a circle with a number is indicated to show the cluster of the company HQ numbers. Clicking into it will enable you to find list of markers in a specific area. </h3>
           <!-- The div where we will inject our map -->
           <div id="map" style = "height: 650px; position: relative; outline: none"></div>
           <!-- MAP API key -->
@@ -191,14 +191,13 @@
 
           <div class="col-md-6">
             <div id="histogram2"></div>
-          <link rel="icon" type="image/ico" href="../static/images/favicon.ico" sizes=16x16/>
           </div>
           
           <!-- <div class="container-fluid"> -->
-            <div class="col-sm-6">
-              <h3 style ="background-color:white; color:black; margin-top:60px"> The dataset powering this site includes 724 publicly traded companies whose ESG risk scores are publicly available. The dynamic histogram shows the distribution of the ESG risk scores across these 724 companies and the dropdown menu allows the user to select the Aggregate ESG risk scores, versus the individual component score (i.e., Environmental, Social, or Governance risk scores). As an example, of the companies studied, 269 have scores between 20 and 29. 
-                Note: Lower risk scores indicate ‘better’ companies.</h3>
-            </div>
+          <div class="col-sm-6">
+            <h3 style ="background-color:white; color:black; margin-top:60px"> The current dataset is comprised of ESG risk scores for 724 publicly-traded companies that have been rated. This histogram shows the distribution of the 724 companies' ESG risk scores. Use the dropdown menu to choose between the Aggregate or individual component scores (i.e., Environmental, Social, or Governance). As an example, of the companies studied, 269 have scores between 20 and 29. 
+              Note: Lower risk scores indicate ‘better’ companies.</h3>
+          </div>
           <!-- </div> -->
 
         </div>            
@@ -249,7 +248,10 @@
       </div>
     </div>
     <!--End of PIE-->
-
+    <!-- Home button -->
+    <div class="home-button">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="click" href="/">Home</button>
+    </div>
     
     <!-- Start of footer -->
     <footer class="footer navbar-fixed-bottom">
