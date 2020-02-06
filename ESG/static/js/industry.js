@@ -392,7 +392,7 @@ function get_industry_name(industry_name) {
         industry_select.html("");
 
         // get the necessary industry key for passing to the dynamic plot
-        industry_select.append("h3").text(industry_name.toUpperCase());
+        industry_select.append("h4").text(industry_name.toUpperCase());
     
 };
 
