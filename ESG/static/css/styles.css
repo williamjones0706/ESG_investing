@@ -110,6 +110,9 @@ ul li:hover ul li {
   z-index: 2;
 }
 
+#descriptor-paragraph {
+  text-align: left;
+}
 
 /* ----Descriptor START---- */
 #descriptor {
@@ -172,6 +175,7 @@ ul li:hover ul li {
   padding:10px;
   float: right;
 }
+
 
 .imageNav-header {
   /* Positioning */
