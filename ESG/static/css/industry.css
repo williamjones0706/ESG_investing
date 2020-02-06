@@ -30,6 +30,23 @@ h2 {
   vertical-align: middle;
 }
 
+h3 {
+  font-family: 'Arial';
+  font-size: 20px;
+  text-align: center;
+  color: whitesmoke;
+  line-height: 1.75em;
+  vertical-align: middle
+}
+
+#changeback {
+  color: rgb(43, 96, 177);
+}
+
+#industry_name{
+  color: rgb(43, 96, 177);
+}
+
 h4 {
   font-family: 'Arial';
   font-size: 30px;
