@@ -40,7 +40,7 @@ function updateHist(scoresObj) {
       histfunc: "count",
       histnorm: "count",
       marker: {
-        color: "#adff2fa0",
+        color: "#adff2fa000",
         line: {
           color: "#000000",
           width: 1

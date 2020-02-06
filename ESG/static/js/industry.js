@@ -16,7 +16,7 @@ function build_industrytop10_plot() {
 
     // var url = "/api/esg";
 
-    d3.json("../data/ESG_Industry10_Table.json").then((data) => {
+    d3.json("../static/data/ESG_Industry10_Table.json").then((data) => {
         // log the data in order to visualize it
         console.log(data);
 
@@ -87,7 +87,7 @@ function build_Environment_industrytop10_plot() {
 
     // var url = "/api/esg";
 
-    d3.json("../data/E_Industry10_Table.json").then((data) => {
+    d3.json("../static/data/E_Industry10_Table.json").then((data) => {
         // log the data in order to visualize it
         console.log(data);
 
@@ -158,7 +158,7 @@ function build_Social_industrytop10_plot() {
 
     // var url = "/api/esg";
 
-    d3.json("../data/S_Industry10_Table.json").then((data1) => {
+    d3.json("../static/data/S_Industry10_Table.json").then((data1) => {
         // log the data in order to visualize it
         console.log(data1);
 
@@ -229,7 +229,7 @@ function build_Governance_industrytop10_plot() {
 
     // var url = "/api/esg";
 
-    d3.json("../data/G_Industry10_Table.json").then((data) => {
+    d3.json("../static/data/G_Industry10_Table.json").then((data) => {
         // log the data in order to visualize it
         console.log(data);
 
@@ -300,7 +300,7 @@ function build_industry_dynamic_plot(industry_name) {
 
     // var url = "/api/esg";
 
-    d3.json("../data/ESG_Industry_Table.json").then((data) => {
+    d3.json("../static/data/ESG_Industry_Table.json").then((data) => {
         // log the data in order to visualize it
         console.log(data);
 
@@ -408,7 +408,7 @@ function init() {
     var dropdown = d3.select("#selDataset");
 
     // read the data from samples.json
-    d3.json("../data/ESG_Industry_Table.json").then((data) => {
+    d3.json("../static/data/ESG_Industry_Table.json").then((data) => {
         console.log(data)
 
         var data_array = Object.values(data.Industry);

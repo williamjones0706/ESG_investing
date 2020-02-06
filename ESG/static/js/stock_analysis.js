@@ -14,12 +14,11 @@ function handleSubmit() {
   getCompanyInfo(stock)
   // build_Basic_Line_Plot(stock);
   build_Candlestick_Plot(stock);
-  // build_gauge_ESG(stock);
-  // build_gauge_E(stock);
-  // build_gauge_S(stock);
-  // build_gauge_G(stock);
+  build_gauge_ESG(stock);
+  build_gauge_E(stock);
+  build_gauge_S(stock);
+  build_gauge_G(stock);
   getAnnualData(stock)
-  buildGetESGscores(stock)
 }
 
 function getCompanyInfo(stock) {
@@ -38,7 +37,6 @@ function getCompanyInfo(stock) {
     // d3.event.preventDefault();
     d3.select("#Company-Name").text(company_name);
     d3.select("#Compant-Logo").attr("src", company_logo);
-    d3.select("#Company-Website-Link").attr("href", company_website);
     d3.select("#Company-Description").text(company_description);
     d3.select("#Company-Details-Header").text("Company Details");
 
@@ -65,40 +63,12 @@ function getCompanyInfo(stock) {
 }
 
 
-function buildGetESGscores(stock) {
-  d3.json("../static/data/ESG_Scores.json").then((data) => {
-      // Slice and filer the data from Samples
-      console.log(data);
-      data_array = Object.entries(data);
-      console.log(data_array);
-      data_arrar_score = data_array.find(e => e[0] === stock)[1];
-      console.log(data_arrar_score);
-      console.log(stock)
-      ESG_Score_Value = data_arrar_score['ESG Risk Score'];
-      E_Score_Value = data_arrar_score['Environment Risk Score'];
-      S_Score_Value = data_arrar_score['Social Risk Score'];
-      G_Score_Value = data_arrar_score['Governance Risk Score'];
-
-      console.log(ESG_Score_Value)
-      console.log(E_Score_Value)
-      console.log(S_Score_Value)
-      console.log(G_Score_Value)
-
-      build_gauge_ESG(ESG_Score_Value)
-      build_gauge_E(E_Score_Value)
-      build_gauge_S(S_Score_Value)
-      build_gauge_G(G_Score_Value)
-
-  });
-};
-
-
-function build_gauge_ESG(ESG_Score_Value) {
+function build_gauge_ESG(stock) {
   var data = [
     {
       type: "indicator",
       mode: "gauge+number",
-      value: ESG_Score_Value,
+      value: 30,
       title: { text: "ESG Score", font: { size: 16 } },
       gauge: {
         axis: { range: [null, 100], tickwidth: 1, tickcolor: "darkblue" },
@@ -127,12 +97,12 @@ function build_gauge_ESG(ESG_Score_Value) {
 
 }
 
-function build_gauge_E(E_Score_Value) {
+function build_gauge_E(stock) {
   var data = [
     {
       type: "indicator",
       mode: "gauge+number",
-      value: E_Score_Value,
+      value: 30,
       title: { text: "Environment", font: { size: 16 } },
       gauge: {
         axis: { range: [null, 100], tickwidth: 1, tickcolor: "darkblue" },
@@ -161,12 +131,12 @@ function build_gauge_E(E_Score_Value) {
 
 }
 
-function build_gauge_S(S_Score_Value) {
+function build_gauge_S(stock) {
   var data = [
     {
       type: "indicator",
       mode: "gauge+number",
-      value: S_Score_Value,
+      value: 30,
       title: { text: "Social", font: { size: 16 } },
       gauge: {
         axis: { range: [null, 100], tickwidth: 1, tickcolor: "darkblue" },
@@ -195,12 +165,12 @@ function build_gauge_S(S_Score_Value) {
 
 }
 
-function build_gauge_G(G_Score_Value) {
+function build_gauge_G(stock) {
   var data = [
     {
       type: "indicator",
       mode: "gauge+number",
-      value: G_Score_Value,
+      value: 30,
       title: { text: "Governance", font: { size: 16 } },
       gauge: {
         axis: { range: [null, 100], tickwidth: 1, tickcolor: "darkblue" },
@@ -302,9 +272,7 @@ function build_Candlestick_Plot(stock) {
   });
 }
 
-function formatNumber (num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
-}
+
 
 function getAnnualData(stock) {
 
@@ -343,13 +311,13 @@ function buildTableRows(dates, revenue, gross_profit) {
   trevenue = tbody.append('tr');
   trevenue.append('td').text("Revenue")
   for (var i = 5; i < date_length; i++) {
-    trevenue.append('td').text(formatNumber(revenue[i]))
+    trevenue.append('td').text(revenue[i])
   }
   var tgross_profit;
   tgross_profit = tbody.append('tr');
   tgross_profit.append('td').text("Gross Profit")
   for (var i = 5; i < date_length; i++) {
-    tgross_profit.append('td').text(formatNumber(gross_profit[i]))
+    tgross_profit.append('td').text(gross_profit[i])
   }
 }
 
