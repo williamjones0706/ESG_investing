@@ -40,10 +40,6 @@ line-height: 1.75em;
 vertical-align: middle
 }
 
-#industry_name {
-color: rgb(43, 96, 177);
-}
-
 h4 {
 font-family: 'Arial';
 font-size: 30px;
@@ -283,3 +279,6 @@ background-color:grey;
 }
 
 /* ----FOOTER END---- */
+#industry_name {
+color: rgb(43, 96, 177);
+}
