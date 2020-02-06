@@ -23,7 +23,7 @@ from flask import (
 # import pymysql
 
 # Pandas
-import pandas as pd
+# import pandas as pd
 
 # JSON
 # import json
