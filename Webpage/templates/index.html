@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ESG Risk Scores Dashboard</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen"> -->
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="../static/css/styles.css" media="screen">
+    <!-- Plotly Libray -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/heatmapjs@2.0.2/heatmap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.min.js"></script>
+    
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+    <!-- End of MAP Libraries -->
+
+
+    <!-- PIE Libraries -->
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <!-- End PIE Libraries -->
+
+  </head>
+    
+  <body>
+    <!-- New Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">
+        <img src="../static/images/WSWSlogo.png" width="60" height="60" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" width ="30" height ="30">
+            <a class="nav-link" href="index.html">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="industry.html">Industry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="stock_analysis.html">Stock Analysis</a>
+          </li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Find" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Stock Ticker</button>
+        </form> -->
+      </div>
+    </nav>
+    <!-- End new Navbar -->
+
+
+    <!-- jumbotron & intro -->
+    <div class="row">
+      <div class="col-lg-12">
+      <div class="jumbotron">
+        <div class="overlay"></div>
+        <div class="inner">
+          <h1>ESG Stock Investing</h1>
+          <h2 style="color:rgb(7, 133, 47)"> Going beyond traditional stock analysis</h2>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- End Jumbotron -->
+      
+    <!-- ESG Description -->
+    <div id="descriptor">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 style="color:rgb(61, 190, 102)">What is ESG?</h2>
+            <h3>ESG Environment, Social and Governance refers to the three central factors in measuring the sustainability and societal impact of an investment in a company or business</hr>
+            <h3>It all started with the founder of one of the City of London’s leading branding consultancies established the first environmental finance research groups. The informal group of financial leaders, city lawyers and environmental stewardship NGOs became known as The Virtuous Circle, and it’s main purpose was to examine the nature of the correlation between environmental and social standards and financial performance. Several of the big banks began to respond with growing interest in the ESG Investment market with provision of sell-side services.</hr>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard">
+        <!-- <div class="container-fluid"> -->
+
+          <div class="row">
+            <div class="col-sm-12">
+              <h2 style="color:rgb(61, 190, 102)">Visualizations</h2>
+              <h3>Click below for Visualizations</hr>
+            </div>
+          </div>
+
+          <div class="row text-center">
+            <div class="col-md-6">
+              <a href="#MAPChart"><img src="../static/images/a4.png" alt="Location" class="imageNav-photo"></a>
+              <h4>Geography</h4>
+              <!-- <p>See where the companies are located in the map</p> -->
+            </div>
+            <div class="col-md-6">
+              <a href="#SECTORChart"><img src="../static/images/a4.png" alt="Market Capitalization" class="imageNav-photo"></a>
+              <h4>Market Capitalization</h4>
+              <!-- <p>Insert here description of Visualization1</p> -->
+            </div>
+          </div>
+
+          <div class="row text-center">
+            <div class="col-md-6">
+              <a href="#histogram2"><img src="../static/images/a4.PNG" alt="ESG Risk" class="imageNav-photo"></a>
+              <h4>Risk Distribution</h4>
+              <!-- <p>Insert here description of Visualization1</p> -->
+            </div>
+            <div class="col-md-6">
+              <a href="#funnel"><img src="../static/images/a4.png" alt="Stock Performance" class="imageNav-photo"></a>
+              <h4>Stock Performance</h4>
+              <!-- <p>Insert here description of Visualization1</p> -->
+            </div>
+          </div>
+
+        <!-- </div> -->
+    </div>    
+    <!-- End of DASHBOARD -->
+
+
+    <!-- Description to add MAP -->
+    <div id="descriptor"  style ="background-color:rgb(137, 224, 195)">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12" id="MAPChart">
+
+          <!-- <div id="options">Click on the clusters</div> -->
+          <h2 style ="color:rgb(61, 190, 102)"> Geography</h2>
+          <h3 style ="color: black">  The interactive map locates the headquarters of all the 724 companies w. The markers when clicked provides the Company Name, ESG Risk Score and the Market Capital. Where there is a heavy concentration of the company HQs a circle with a number is indicated to show the cluster. </h3>
+          <!-- The div where we will inject our map -->
+          <div id="map" style = "height: 650px; position: relative; outline: none"></div>
+          <!-- MAP API key -->
+          <script type="text/javascript" src="../static/js/config.js"></script>
+          <!-- MAP JS -->
+          <script type="text/javascript" src="../static/js/logic.js"></script>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of MAP -->
+
+
+    <!-- Beginning FUNNEL -->
+    <div id="descriptor">   
+      <div id="#funnel">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <h2 style ="color:rgb(61, 190, 102)"> 2019 Stock Performance</h2>
+              <h3 style ="color:black"> Number of Stocks and Their Value Changes Over the 12-Month Period</h3>
+          
+              <div id="funnel"></div>
+          
+              <script src="../static/js/stock_perf_2019_funnel.js"></script>
+            </div>
+            <div class="col-sm-6">
+              <h3 style ="background-color:white; color:black; margin-top:60px"> The dataset powering this site includes 724 publicly traded companies whose ESG risk scores are publicly available. The funnel plot shows how well these companies have performed in 2019. For example, 421 of the 724 stocks gained more than 20% in value over 12 months.</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FUNNEL END -->
+    
+    <!--Begining of Histogram -->
+    <div id="descriptor" style ="background-color:rgb(137, 224, 195)">
+      <div class="container-fluid">
+      
+      <!-- <div class="container"> -->
+        <div class="row">
+
+          <div class="col-md-6">
+            <div id="histogram2"></div>
+          <link rel="icon" type="image/ico" href="../static/images/favicon.ico" sizes=16x16/>
+          </div>
+          
+          <!-- <div class="container-fluid"> -->
+            <div class="col-sm-6">
+              <h3 style ="background-color:white; color:black; margin-top:60px"> The dataset powering this site includes 724 publicly traded companies whose ESG risk scores are publicly available. The dynamic histogram shows the distribution of the ESG risk scores across these 724 companies and the dropdown menu allows the user to select the Aggregate ESG risk scores, versus the individual component score (i.e., Environmental, Social, or Governance risk scores). As an example, of the companies studied, 269 have scores between 20 and 29. 
+                Note: Lower risk scores indicate ‘better’ companies.</h3>
+            </div>
+          <!-- </div> -->
+
+        </div>            
+      </div>          
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="../static/js/histogram.js"></script>
+      
+    
+    </div>
+    <!--End of Histogram-->
+
+    <!-- Beginning of PIE -->
+    <div id="descriptor">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6" id="SECTORChart">
+
+            <h2 style ="color:rgb(61, 190, 102)">Industry Sectors of the Companies Studied</h2>
+            <h3>Drop Down Menu Allows Segmentation of Data by Market Capitalization</h3>
+            <select id="selDataset">
+                <option value="all">All (724 Companies)</option>
+                <option value="sc">Small Cap (7 Companies, < $2B)</option>
+                <option value="mc">Mid Cap (184 Companies, $2B - $10B)</option>
+                <option value="lc">Large Cap (533 Companies, > $10B)</option>
+            </select>
+        
+            <div id="pie"></div>
+        
+            <script src="../static/data/sector_count.json"></script>
+            <script src="../static/data/small_cap.json"></script>
+            <script src="../static/data/mid_cap.json"></script>
+            <script src="../static/data/large_cap.json"></script>
+        
+            <script src="../static/js/sector_mkt_cap_pie.js"></script>
+        
+          </div>
+          <!-- <div class="container-fluid"> -->
+          <div class="col-sm-6">
+            <h3 style ="background-color:white; color:black; margin-top:60px"> This donut plot illustrates the industrial sector composition of the data. This plot is dynamic allows selection of the subset of companies one is interested in understanding in terms of their market capitalization. For instance, by selecting Mid Cap companies in the dropdown menu, one can see that 10% of the companies analyzed are from the Basic Materials sector.</h3>
+          </div>
+        <!-- </div> -->
+        </div>
+      </div>
+    </div>
+    <!--End of PIE-->
+
+    <div class="home-button">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="click" href="#Overview">Home</button>
+    </div>
+    
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+      </p>Copyright | 2020 Wall Street Warriors (WSWs).
+    </footer>
+    <!-- End of footer -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+</html>

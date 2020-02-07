@@ -1,0 +1,282 @@
+/* ----ELEMENT STYLING START---- */
+*{
+  margin:0;
+  padding:0;
+}
+body {
+font-family: Arial;
+background-size: cover;
+}
+
+p {
+line-height: 1.75;
+font-size: 30px;
+color: rgb(7, 133, 47);
+}
+
+h1 {
+font-family: 'Arial';
+text-align: center;
+font-weight: bold;
+font-size: 50px;
+color: rgb(7, 133, 47);
+vertical-align: middle;
+}
+
+h2 {
+font-family: 'Arial';
+font-size: 30px;
+text-align: center;
+font-weight: bold;
+color: rgb(43, 96, 177);
+vertical-align: middle;
+}
+
+h3 {
+font-family: 'Arial';
+font-size: 20px;
+text-align: center;
+color: whitesmoke;
+line-height: 1.75em;
+vertical-align: middle
+}
+
+h4 {
+font-family: 'Arial';
+font-size: 30px;
+text-align: center;
+font-weight: bold;
+color: rgb(43, 96, 177);
+vertical-align: middle;
+}
+
+h5 {
+font-family: 'Arial';
+font-size: 30px;
+text-align: center;
+font-weight: bold;
+color: rgb(43, 96, 177);
+vertical-align: middle;
+}
+
+h6 {
+font-family: 'Arial';
+font-size: 30px;
+text-align: center;
+font-weight: bold;
+color: rgb(43, 96, 177);
+vertical-align: middle;
+}
+
+/*--navbar--*/
+p a {
+font-family:arial;
+color:orangered;
+font-size:40px;
+line-height:55px;
+float:left;
+padding: 0px 20px;
+}
+ul {
+  margin:0px;
+  padding:0px;
+  list-style: none;
+  text-align: center;
+}
+ul li {
+  float:left;
+  width: 200px;
+  text-align: center;
+  font-size: 25px;
+}
+ul li a {
+  text-decoration: none;
+  color: rgb(136, 129, 129);
+  display: block;
+}
+/* ul li a:hover {
+  background-color:rgb(50, 58, 50)
+} */
+ul li ul li {
+  display: none;
+}
+ul li:hover ul li {
+  display: block;
+}
+
+/* ----Navbar END---- */
+
+/* First line */
+.jumbotron{
+background-image: url('../images/esgimg.jpg');
+font-family: 'Arial';
+font-size: 50px;
+padding-top: 130px;
+padding-bottom: 50px;
+
+background-size: cover;
+min-height: 400px;
+margin: 0px;
+position: relative;
+}
+
+/* .jumbotron > .overlay {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+background-color: rgba(8, 9, 58, 0.5);
+z-index: 1;
+} */
+
+.jumbotron > .inner {
+position: relative;
+z-index: 2;
+}
+
+
+/* ----Descriptor START---- */
+#descriptor{
+background-color:  rgb(236, 252, 238);
+padding-top: 100px;
+padding-bottom: 50px;
+color: rgb(12, 0, 0);
+min-height: 600px;
+
+}
+
+/* #Company-Name{
+padding-top: 50px;
+padding-bottom: 50px;
+} */
+
+/* #company-details-add{
+padding-top: 50px;
+padding-bottom: 50px;
+} */
+
+#details-table{
+text-align: right;
+font-weight: bold;
+}
+/* ----Container START---- */
+
+#dashboard{
+background-image: url('images/a3.jpeg');
+background-size: cover;
+position: relative;
+padding-top: 50px;
+}
+
+
+
+
+
+
+#container{
+width:800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+#content-description{
+/* Positioning */
+width: 100px;
+padding:10px;
+float:left;
+
+/* Typography */
+font-family:Georgia;
+font-size: 20px;
+font-weight: bold;
+color: darkblue;
+background:lavender
+}
+
+/* ----DESCRIPTION END---- */
+
+/* ----IMAGE NAV START---- */
+#imageNav-area {
+width: 180px;
+padding:10px;
+float: right;
+}
+
+.imageNav-header {
+/* Positioning */
+margin-bottom: 15px;
+font-family: Georgia;
+align-content: right;
+
+/* Typography */
+font-size: 25px;
+font-weight: bold;
+color:orange;
+}
+
+.imageNav-photo {
+width: 140px;
+
+/* Box-model */
+height: 140px;
+}
+
+.imageNav-photo:hover {
+/* Visuals */
+opacity: 0.6;
+}
+
+.imageNav-photo.active {
+/* Visuals */
+border: 10px;
+}
+
+#images {
+/* Box-model */
+padding-top: 15px;
+
+/* Typography */
+text-align: right;
+}
+
+/* ----IMAGE NAV END---- */
+
+/* ----FOOTER START---- */
+.footer {
+/* Positioning */
+clear: both;
+background-color: grey;
+padding:10px;
+bottom: 0;
+
+/* Box-model */
+width: 100%;
+height: 60px;
+margin-top: 30px;
+
+/* Visual */
+background-color:grey;
+}
+
+.text-muted-footer {
+/* Positioning */
+margin-top: 10px;
+
+/* Typography */
+font-size: small;
+color:white;
+
+}
+
+.two-toned-footer-color {
+/* Box-model */
+height: 6px;
+padding-top: 3px;
+
+/* Visual */
+background-color:grey;
+}
+
+/* ----FOOTER END---- */

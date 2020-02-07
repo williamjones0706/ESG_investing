@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dropdown Events</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Industry Sectors of the Companies Studied</h1>
+    <h3>Drop Down Menu Allows Segmentation of Data by Market Capitalization</h3>
+    <select id="selDataset">
+        <option value="all">All (724 Companies)</option>
+        <option value="sc">Small Cap (7 Companies, < $2B)</option>
+        <option value="mc">Mid Cap (184 Companies, $2B - $10B)</option>
+        <option value="lc">Large Cap (533 Companies, > $10B)</option>
+    </select>
+
+    <div id="pie"></div>
+
+    <script src="data/sector_count.json"></script>
+    <script src="data/small_cap.json"></script>
+    <script src="data/mid_cap.json"></script>
+    <script src="data/large_cap.json"></script>
+
+    <script src="sector_mkt_cap_pie_plots.js"></script>
+</body>
+</html>
