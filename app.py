@@ -1,7 +1,7 @@
 print('start')
 
 import os
-import json
+# import json
 
 import pandas as pd
 import numpy as np
@@ -18,7 +18,7 @@ print('check 1')
 
 print('check 2')
 
-from flask import Flask, jsonify, render_template, url_for, json, request, flash
+from flask import Flask, jsonify, render_template, url_for, json, request
 from flask_sqlalchemy import SQLAlchemy
 
 print('check 3')
