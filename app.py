@@ -137,8 +137,6 @@ def get_esg_data():
 #     return jsonify(results.to_dict(orient="records"))
 
 
-#if __name__ == "__main__":
-#    app.run()
+if __name__ == "__main__":
+    app.run()
 print('check 8')
-
-app.run()
