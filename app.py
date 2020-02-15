@@ -68,6 +68,11 @@ print(Base.classes.keys())
 
 print("this is a test")
 
+@app.route("/")
+def index():
+    """Return the homepage."""
+    return render_template("index.html")
+    
 
 @app.route('/api/data/esg')
 def get_esg_data():
@@ -79,11 +84,7 @@ def get_esg_data():
 
     return esg_df.to_json(orient='records')
 
-# @app.route("/")
-# def index():
-#     """Return the homepage."""
-#     return render_template("index.html")
-    
+
 # @app.route('/data')
 # def get_data():
 #     global data    
