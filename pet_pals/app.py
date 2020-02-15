@@ -23,7 +23,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 print('check 3')
 
-IS_HEROKU = True #os.environ['IS_HEROKU']
+IS_HEROKU = False
+
+if('IS_HEROKU' in os.environ):
+    IS_HEROKU = True
 
 print('check 4')
 
@@ -65,9 +68,16 @@ print(Base.classes.keys())
 
 print("this is a test")
 
-test_df = pd.read_sql("SELECT * FROM woke_investing", conn)
 
-print(test_df)
+@app.route('/api/data/esg')
+def get_esg_data():
+    conn = engine.connect()
+
+    esg_df = pd.read_sql("SELECT * FROM woke_investing", conn)
+
+    conn.close()
+
+    return esg_df.to_json(orient='records')
 
 # @app.route("/")
 # def index():
